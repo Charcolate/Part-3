@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Villager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Villager : MonoBehaviour
     Vector2 movement;
     protected float speed = 3;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,12 +30,12 @@ public class Villager : MonoBehaviour
         isSelected = value;
         highlight.SetActive(isSelected);
     }
-
-    private void OnMouseDown()
-    {
-        CharacterControl.SetSelectedVillager(this);
-        clickingOnSelf = true;
-    }
+    
+    //private void OnMouseDown()
+    //{
+        //CharacterControl.SetSelectedVillager(this);
+        //clickingOnSelf = true;
+    //}
 
     private void OnMouseUp()
     {
