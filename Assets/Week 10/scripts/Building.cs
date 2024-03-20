@@ -9,6 +9,7 @@ public class Building : MonoBehaviour
     public GameObject building2;
     public GameObject building3;
     public Transform spawnpoint;
+    float elapsedTime = 0f;
 
     Coroutine scalingCoroutine;
     int currentBuilding = 1;
@@ -21,11 +22,30 @@ public class Building : MonoBehaviour
 
     IEnumerator ScaleBuildings()
     {
-        Instantiate(building1, spawnpoint.position, spawnpoint.rotation);
+        GameObject instantiatedBuilding1 = Instantiate(building1, spawnpoint.position, spawnpoint.rotation);
+        yield return StartCoroutine(IncreaseScale(instantiatedBuilding1, 1.5f, 1.0f));
         yield return new WaitForSeconds(0.5f);
-        Instantiate(building2, spawnpoint.position, spawnpoint.rotation);
+
+        GameObject instantiatedBuilding2 = Instantiate(building2, spawnpoint.position, spawnpoint.rotation);
+        yield return StartCoroutine(IncreaseScale(instantiatedBuilding2, 1.5f, 1.0f));
         yield return new WaitForSeconds(0.5f);
-        Instantiate(building3, spawnpoint.position, spawnpoint.rotation);
-        yield return new WaitForSeconds(0.5f);
+
+        GameObject instantiatedBuilding3 = Instantiate(building3, spawnpoint.position, spawnpoint.rotation);
+        yield return StartCoroutine(IncreaseScale(instantiatedBuilding3, 1.5f, 1.0f));
+    }
+
+    IEnumerator IncreaseScale(GameObject building, float targetScaleFactor, float duration)
+    {
+        Vector3 initialScale = building.transform.localScale;
+        Vector3 targetScale = new Vector3(initialScale.x * targetScaleFactor, initialScale.y * targetScaleFactor, initialScale.z);
+
+        while (elapsedTime < duration)
+        {
+            building.transform.localScale = Vector3.Lerp(initialScale, targetScale, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        building.transform.localScale = targetScale;
     }
 }
