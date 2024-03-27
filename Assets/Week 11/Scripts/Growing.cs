@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 
@@ -74,7 +75,7 @@ public class Growing : MonoBehaviour
     {
         running += 1;
         float size = 0;
-        while (size < 5)
+        while (size < 5 == big)
         {
             size += Time.deltaTime;
             Vector3 scale = new Vector3(size, size, size);
@@ -88,6 +89,7 @@ public class Growing : MonoBehaviour
             circle.transform.localScale = scale;
             circleTMP.text = "Cirlce: " + scale;
 
+            yield return big;
         }
         running -= 1;
     }
