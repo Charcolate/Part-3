@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class food : MonoBehaviour
 {
+    public static bool isEating = false; //static variable to check if the players are eating the food
+
     // Start is called before the first frame update
     void Start()
     {
