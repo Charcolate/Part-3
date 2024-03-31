@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using TMPro;
 using UnityEngine;
 
@@ -38,7 +37,6 @@ public class Growing : MonoBehaviour
 
     }
 
-
     IEnumerator Square()
     {
         running += 1;
@@ -48,7 +46,7 @@ public class Growing : MonoBehaviour
             size += Time.deltaTime;
             Vector3 scale = new Vector3(size, size, size);
             square.transform.localScale = scale;
-            squareTMP.text = "Square: " + scale;
+            squareTMP.text = "Square: " + scale.ToString("F2");
 
             yield return null;
         }
@@ -64,7 +62,7 @@ public class Growing : MonoBehaviour
             size += Time.deltaTime;
             Vector3 scale = new Vector3(size, size, size);
             triangle.transform.localScale = scale;
-            triangleTMP.text = "Triangle: " + scale;
+            triangleTMP.text = "Triangle: " + scale.ToString("F2");
 
             yield return null;
         }
@@ -75,12 +73,13 @@ public class Growing : MonoBehaviour
     {
         running += 1;
         float size = 0;
-        while (size < 5 == big)
+        while (size < 5)
         {
             size += Time.deltaTime;
             Vector3 scale = new Vector3(size, size, size);
             circle.transform.localScale = scale;
             circleTMP.text = "Cirlce: " + scale;
+            yield return null;
         }
         while (size > 0)
         {
@@ -88,9 +87,10 @@ public class Growing : MonoBehaviour
             Vector3 scale = new Vector3(size, size, size);
             circle.transform.localScale = scale;
             circleTMP.text = "Cirlce: " + scale;
-
-            yield return big;
+            yield return null;
         }
         running -= 1;
     }
+
+
 }

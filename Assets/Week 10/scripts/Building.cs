@@ -12,7 +12,6 @@ public class Building : MonoBehaviour
     float elapsedTime = 0f;
 
     Coroutine scalingCoroutine;
-    int currentBuilding = 1;
 
     // Start is called before the first frame update
     void Start()
