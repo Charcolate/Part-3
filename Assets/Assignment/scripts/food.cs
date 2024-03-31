@@ -38,6 +38,13 @@ public class food : MonoBehaviour
         }
     }
 
+    void OnMouseDown()
+    {
+        if (Input.GetMouseButtonDown(0) && gameObject.CompareTag("Food"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update()
