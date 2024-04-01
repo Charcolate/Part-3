@@ -10,9 +10,21 @@ public class icecream : food
         StartCoroutine(FloatFood(2));
     }
 
+
     protected override IEnumerator FloatFood(float delay = 2)
     {
         return base.FloatFood(delay);
+    }
+
+    protected override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        lick(); 
+    }
+
+    void lick()
+    {
+        Debug.Log("oooooo, cold!");
     }
 
     // Update is called once per frame

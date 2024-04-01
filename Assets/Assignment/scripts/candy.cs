@@ -16,6 +16,17 @@ public class candy : food
         return base.FloatFood(delay);
     }
 
+    protected override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        rolling();
+    }
+
+    void rolling()
+    {
+        Debug.Log("a little too sweet.");
+    }
+
     // Update is called once per frame
     void Update()
     {

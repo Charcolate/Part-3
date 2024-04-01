@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class cupcake : food
 {
+
+
     protected override void Start()
     {
         base.Start();
@@ -13,6 +15,17 @@ public class cupcake : food
     protected override IEnumerator FloatFood(float delay = 3)
     {
         return base.FloatFood(delay);
+    }
+
+    protected override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        eat();
+    }
+
+    void eat()
+    {
+        Debug.Log("A treat at the end of the day.");
     }
 
     // Update is called once per frame
