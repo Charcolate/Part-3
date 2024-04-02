@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Assignment/scene/start.unity
     guid: 3d89ac3691c89e245a3373b94f05ffde
+  - enabled: 1
+    path: Assets/Assignment/scene/scene.unity
+    guid: b045ca7835e274c4abe274dd09d246e9
+  - enabled: 1
+    path: Assets/Assignment/scene/end.unity
+    guid: d4dd8ece293101649bb800d62cbe4aa1
   m_configObjects: {}
